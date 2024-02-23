@@ -24,3 +24,6 @@ urlpatterns = [
     path('auth/', include('djoser.urls.jwt')),
     path("__debug__/", include("debug_toolbar.urls")),
 ]
+
+admin.site.site_header = "Store"
+admin.site.site_title = ""

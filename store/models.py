@@ -11,6 +11,9 @@ class Category(models.Model):
     description = models.CharField(max_length=500, blank=True)
     top_product = models.ForeignKey('Product', on_delete=models.SET_NULL, null=True, related_name='+')
 
+    def __str__(self):
+        return self.title
+
 
 class Discount(models.Model):
     discount = models.FloatField()
@@ -33,6 +36,9 @@ class Customer(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
     phone_number = models.CharField(max_length=255)
     birth_date = models.DateField(null=True, blank=True)
+
+    def __str__(self):
+        return f'{self.user}'
 
 
 class Address(models.Model):
